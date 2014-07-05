@@ -131,7 +131,9 @@ end
 # . e.g. the array ['cat', 'dog', 'fish'] becomes
 # ['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']
 def get_all_letters_in_array_of_words(array)
-
+	a= []
+	array.each {|element| a.concat(element.chars)}
+	a
 end
 
 # swap the keys and values in a hash. e.g.
@@ -145,26 +147,31 @@ end
 # add all the keys and all the values together, e.g.
 # {1 => 1, 2 => 2} becomes 6
 def add_together_keys_and_values(hash)
+	hash.to_a.flatten.inject(:+)
 end
 
 # take out all the capital letters from a string
 # so 'Hello JohnDoe' becomes 'ello ohnoe'
 def remove_capital_letters_from_string(string)
+	string[/^A-Z/]
 end
 
 # round up a float up and convert it to an Integer,
 # so 3.214 becomes 4
 def round_up_number(float)
+	(float + 0.5).round
 end
 
 # round down a float up and convert it to an Integer,
 # so 9.52 becomes 9
 def round_down_number(float)
+	(float - 0.5).round
 end
 
 # take a date and format it like dd/mm/yyyy, so Halloween 2013
 # becomes 31/10/2013
 def format_date_nicely(date)
+	date.strftime("%d/%m/%Y")
 end
 
 # get the domain name *without* the .com part, from an email address
